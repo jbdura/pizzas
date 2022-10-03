@@ -3,6 +3,6 @@ class RestaurantPizzaSerializer < ActiveModel::Serializer
   # has_one :pizza
   # has_one :restaurant
 
-  belongs_to :pizza
-  belongs_to :restaurant
+  belongs_to :pizza_id
+  belongs_to :restaurant_id
 end
