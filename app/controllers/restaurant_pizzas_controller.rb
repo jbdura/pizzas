@@ -2,13 +2,14 @@ class RestaurantPizzasController < ApplicationController
 
 
     ############################################################################################################################
-
+    
+    # GET /restaurantpizzas/
     def index
         rest_pizz = RestaurantPizza.all
         render json: rest_pizz
     end
 
-    # GET /pizas/:id
+    # GET /restaurantpizzas/:id
     def show
         rest_pizz = RestaurantPizza.find_by(id: params[:id])
         if rest_pizz
@@ -20,7 +21,7 @@ class RestaurantPizzasController < ApplicationController
 
 ############################################################################################################################
     
-    #CREATE /restaurants/
+    #CREATE /restaurantpizzas/
     def create
         rest_pizz = RestaurantPizza.create(restpizz_params)
         render json: rest_pizz, status: :created
@@ -28,7 +29,7 @@ class RestaurantPizzasController < ApplicationController
 
 ############################################################################################################################
 
-    # PATCH /restaurants/:id
+    # PATCH /restaurantpizzas/:id
     def update
         rest_pizz = RestaurantPizza.find_by(id: params[:id])
         if rest_pizz
@@ -41,7 +42,7 @@ class RestaurantPizzasController < ApplicationController
 
 ############################################################################################################################
 
-    # DELETE /restaurants/:id
+    # DELETE /restaurantpizzas/:id
     def destroy
         rest_pizz = RestaurantPizza.find_by(id: params[:id])
         if rest_pizz
@@ -56,12 +57,12 @@ class RestaurantPizzasController < ApplicationController
 
     private
 
-    # def find_restaurant
-    #     Restaurant.find_by(:id params[:id])
+    # def find_restaurantpizza
+    #     RestaurantPizza.find_by(:id params[:id])
     # end
 
     def restpizz_params
-        params.permit(:name, :ingredients)
+        params.permit(:price, :pizza_id, :restaurant_id)
     end
 
 end
