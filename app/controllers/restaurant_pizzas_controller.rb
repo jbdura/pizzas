@@ -5,8 +5,8 @@ class RestaurantPizzasController < ApplicationController
     
     # GET /restaurantpizzas/
     def index
-        rest_pizz = RestaurantPizza.all
-        render json: rest_pizz
+        rest_pizzas = RestaurantPizza.all
+        render json: rest_pizzas
     end
 
     # GET /restaurantpizzas/:id

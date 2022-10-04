@@ -7,14 +7,14 @@ class RestaurantsController < ApplicationController
     #GET /retaurants
     def index
         restaurants = Restaurant.all
-        render json: restaurants
+        render json: restaurants, include: :pizza
     end
 
     # GET /restaurants/:id
     def show
         restaurant = Restaurant.find_by(id: params[:id])
         if restaurant
-            render json: restaurant, serializer: RestaurantPizzaSerializer
+            render json: restaurant, include: :pizza
         else
             render json: { error: "Restaurant not found" }, status: :not_found
         end
