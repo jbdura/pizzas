@@ -6,7 +6,7 @@ class RestaurantPizza < ApplicationRecord
   validate :price_range
 
   def price_range
-    if price >= 1 || price ==30
+    if price >= 1 || price == 30
       return true
     else 
       errors.add(:price, "That price is not valid")
